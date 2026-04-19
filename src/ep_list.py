@@ -43,11 +43,13 @@ def get_episode_list(show_id, mode="sub"):
 
     return episode_list
 
+"""
 
 # 🔎 Example usage
 if __name__ == "__main__":
-    show_id = "Gcou36nB8su3KWXrr"  # <- from search API
+    show_id = "naruto-id-here"  # <- from search API
     eps = get_episode_list(show_id)
 
     print(f"Total episodes: {len(eps)}")
     print("First 10 episodes:", eps[:10])
+"""
