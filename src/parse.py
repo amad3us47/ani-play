@@ -1,37 +1,39 @@
 import requests
 import json
 
-url = "https://api.allanime.day/api"
+def fetch_anime(search_query):
+    url = "https://api.allanime.day/api"
 
-headers = {
-    "Content-Type": "application/json",
-    "Origin": "https://allanime.to",
-    "Referer": "https://allanime.to/",
-    "User-Agent": "Mozilla/5.0"
-}
-
-payload = {
-    "query": """
-    query ($search: SearchInput) {
-      shows(search: $search) {
-        edges {
-          _id
-          name
-          englishName
-          thumbnail
-          availableEpisodesDetail
-        }
-      }
+    headers = {
+        "Content-Type": "application/json",
+        "Origin": "https://allanime.to",
+        "Referer": "https://allanime.to/",
+        "User-Agent": "Mozilla/5.0"
     }
-    """,
-    "variables": {
-        "search": {
-            "query": "silent voice"
+
+    payload = {
+        "query": """
+        query ($search: SearchInput) {
+          shows(search: $search) {
+            edges {
+              _id
+              name
+              englishName
+              thumbnail
+              availableEpisodesDetail
+            }
+          }
+        }
+        """,
+        "variables": {
+            "search": {
+                "query": search_query
+            }
         }
     }
-}
 
-response = requests.post(url, headers=headers, json=payload)
-data = response.json()
+    response = requests.post(url, headers=headers, json=payload)
+    data = response.json()
 
-print(json.dumps(data, indent=2))
+    #print(json.dumps(data, indent=2))
+    return data
