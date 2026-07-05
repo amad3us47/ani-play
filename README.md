@@ -9,4 +9,4 @@ python main.py
 ```
 
 
-### its not perfect i will fix it soon !!
+### Its not perfect i will fix it soon !!
