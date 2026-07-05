@@ -5,7 +5,7 @@
 
 
 ```
-python nuclei.py -d example.com
+python main.py
 ```
 
 
